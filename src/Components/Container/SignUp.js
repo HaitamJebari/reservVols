@@ -18,7 +18,9 @@ export default function Singup() {
       <span></span>
       <span></span>
       <span></span>
+      <button type='submit'>
       Submit
+      </button>
     </a>
   </form>
   <p>You already have account : <a href="/login" className="a2">Login</a></p>

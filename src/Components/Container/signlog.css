@@ -78,7 +78,9 @@
   color: #272727;
   border-radius: 5px;
 }
-
+button:hover{
+  color: #272727;
+}
 .login-box a span {
   position: absolute;
   display: block;
@@ -177,4 +179,9 @@
   background: transparent;
   color: #aaa;
   border-radius: 5px;
+}
+button{
+     border: none;
+     background-color: rgb(0,0,0,0);     
+     color: white;  
 }

@@ -18,8 +18,11 @@ export default function Login() {
       <span></span>
       <span></span>
       <span></span>
+      <button type='submit'>
       Submit
+      </button>
     </a>
+    
   </form>
   <p>Don't have an account? <a href="/SingUp" className="a2">Sign up!</a></p>
 </div>
