@@ -9,8 +9,11 @@ import off1 from '../../assets/img/offers-1.jpg'
 import off2 from '../../assets/img/offers-2.jpg'
 import off3 from '../../assets/img/offers-3.jpg'
 import vol1 from '../../assets/img/vol1.png'
-
+import { createContext, useState } from 'react';
+export const ContextSearch=createContext()
 function Home() {
+  
+  const [tng,settng]=useState()
   
   return (
     <>
@@ -24,6 +27,10 @@ function Home() {
              </div>   
              <div className='blur-bg'></div>
            </div>
+            <div className="notification">
+              <p>Travel,You're Not a Tree 😎</p>
+              <span className="notification__progress"></span>
+            </div>
            <div className='container'>
            <div className='search'>
              <div className='row'>            
