@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import './Reservation.css';
+import { useParams } from 'react-router-dom';
+import {FaPhone , FaEnvelope , FaBuilding } from "react-icons/fa";
 
 function Reservation() {
   const [Vdepart, setVdepart] = useState('');
@@ -14,6 +16,8 @@ function Reservation() {
 
   const Nave=useNavigate();
   
+  const { selectedValue0,selectedValue1 } = useParams();
+  console.log(selectedValue0,selectedValue1);
   const successAlert = () => {
     Swal.fire({
       title: 'Bien Reserver',
@@ -61,6 +65,9 @@ function Reservation() {
 
 
 
+
+
+
   return (
     <div className="Reservation">
        
@@ -68,25 +75,28 @@ function Reservation() {
           <h4>Book Prefered Deal Here</h4>
           <h2>Make Your Reservation</h2>
           </div>
-          <div class="more-info reservation-info">
+          <div className="more-info reservation-info">
     
     
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-sm-6">
-          <div class="info-item">
+    <div className="container">
+      <div className="row">
+        <div className="col-lg-4 col-sm-6">
+          <div className="info-item">
+            <FaPhone id='icon'/>
             <h4>Make a Phone Call</h4>
             <a href="00">+212 456 789 123</a>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6">
           <div class="info-item">
+            <FaEnvelope  id='icon'/>
             <h4>Contact Us via Email</h4>
             <a href="00">company@email.com</a>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6">
           <div class="info-item">
+            <FaBuilding  id='icon'/>
             <h4>Visit Our Offices</h4>
             <a href="00">24th Street North Avenue Tanger, Morroco</a>
           </div>
@@ -107,8 +117,7 @@ function Reservation() {
           <fieldset>
           <label htmlFor="provenance">Ville de départ</label>
                   <select className='inputR' value={Vdepart} onChange={(e)=>setVdepart(e.target.value)} >
-                      <option selected="selected">Select Your Destinataire</option>
-                      <option>Tanger</option>
+                      <option selected="selected">{selectedValue0}</option>
                   </select>
          </fieldset>
     </div>
@@ -117,7 +126,7 @@ function Reservation() {
           <fieldset>      
           <label htmlFor="arrivee">Ville d'arrivée</label>
                   <select className='inputR' value={Varrivee} onChange={(e)=>setVarrivee(e.target.value)}>
-                      <option selected="selected">Select Your Destinataire</option>
+                      <option selected="selected">{selectedValue1}</option>
                       <option>Paris</option>
                       <option>Berne</option>
                       <option>Dortmund</option>
@@ -136,31 +145,30 @@ function Reservation() {
     <div className='col-lg-6'>
           <label htmlFor="adultes">Nombre d'adultes</label>
           <select  id="adultes" value={Adultes} onChange={(e)=>setAdultes(e.target.value)}>
-            <option selected="selected">0 Adulte</option>
-            <option>0 Adulte</option>
-            <option>1 Adulte</option>
-            <option>2 Adultes</option>
-            <option>3 Adultes</option>
-            <option>4 Adultes</option>
-            <option>5 Adultes</option>
+          <option selected="selected">Selectionner Votre Choix</option>
+            <option>1 </option>
+            <option>2 </option>
+            <option>3 </option>
+            <option>4 </option>
+            <option>5 </option>
           </select>
     </div>
     <div className='col-lg-6'>
           <label htmlFor="enfants">Nombre d'enfants</label>
           <select  id="enfants" value={Enfants} onChange={(e)=>setEnfants(e.target.value)}>
-            <option selected="selected">0 Enfant</option>
-            <option>0 Enfant</option>
-            <option>1 Enfant</option>
-            <option>2 Enfants</option>
-            <option>3 Enfants</option>
-            <option>4 Enfants</option>
-            <option>5 Enfants</option>
+          <option selected="selected">Selectionner Votre Choix</option>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>            
           </select>
     </div>
     <div className='col-lg-12'>
           <label htmlFor="type">Categorie</label>
           <select  id="type" value={Categorie} onChange={(e)=>setCategorie(e.target.value)}>
-            <option selected="selected">Classe Economique</option>
+            <option selected="selected">Selectionner Votre Choix</option>
             <option>Classe Economique</option>
             <option>Classe VIP</option>
           </select>
