@@ -47,12 +47,12 @@ export default function Login() {
           <label>Password</label>
         </div>
 
-        <button type='button' onClick={handleLogin}>
+        <button className='buttonSub' onClick={handleLogin}>
           Submit
         </button>
 
       </form>
-      <p>Don't have an account? <a href="/SignUp" className="a2">Sign up!</a></p>
+      <p>Don't have an account? <a href="/SingUp" className="a2">Sign up!</a></p>
 
       <div className='error'>{message}</div>
     </div>

@@ -1,13 +1,12 @@
 .login-box {
-  
   top: 50%;
   left: 50%;
   width: 400px;
   padding: 40px;
-  margin-top: 18em;
-  margin-left: 40em;
+  margin-top: 20em;
+  margin-left: 55em;
   transform: translate(-50%, -55%);
-  background: rgba(0,0,0,.9);
+  background: #05a6c7cc;
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0,0,0,.6);
   border-radius: 10px;
@@ -184,10 +183,18 @@ button:hover{
   color: #aaa;
   border-radius: 5px;
 }
-button{
+.buttonSub{
      border: none;
-     background-color: rgb(0,0,0,0);     
-     color: white;  
+     background-color: white;
+     color: black;
+     border-radius: 5px;
+     -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+     -ms-border-radius: 5px;
+     -o-border-radius: 5px;
+}
+.login-box p{
+  padding-top: 50px;
 }
 
 .error{

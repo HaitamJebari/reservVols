@@ -28,27 +28,32 @@
 h5{
   font-family: large;
   font-size: 30px;
-  padding-left: 235px;
 }
 p ,h2, h5{
   color: #fff;
   position: relative;
-  z-index: 2;
-  padding-top: 200px;
-}
-h2{
-  padding: 0px 24%;
-  font-family: cursive;
+  z-index: 1;
 }
 
-p{
-    padding: 0px 25%;
-    font-size: 17px;
-    margin-left: -10px;
+.text-blur{
+  font-size: 17px;
+  font-family: cursive;
+  margin-left: 400px;
+  margin-top: 150px;
+}
+.text-blur h2{
+    padding-bottom: 17px;
+    padding-left: 40px;
+}
+.text-blur p{
+  padding-top: 37px;
+  padding-left: 40px;
 }
 .p2{
-  padding: 0px 150px;
+  padding-top: 17px;
+  padding-left: 370px;
 }
+
 @media screen and (max-width:850px) {
   h5{
     margin-left: -375px;
@@ -68,12 +73,12 @@ p{
 }
 .line{
   position: relative;
-  z-index: 2;
+  z-index: 1;
   width: 200px;
   height: 2px;
-  background-color: rgba(255, 255, 255, 0.804);
-  margin: 20px auto;
-  margin-right: 490px;
+  background-color: rgba(255, 255, 255, 0.804); 
+  padding-left: 50px;
+  margin-left: 75px;
 }
 @media screen and (max-width:850px) {
   .line{
@@ -83,7 +88,10 @@ p{
 .blur-bg {
   width: 700px;
   height: 350px;
+  /* Modification*/
   margin-top: -275px;
+  /*....*/
+  margin-left: 210px;
   margin-bottom: 67px;
   border-radius: 40px;
   background: url(../../assets/img/img1.jpg) no-repeat center center fixed;
@@ -92,6 +100,7 @@ p{
   text-align: center;
   z-index: 1;
 }
+
 @media screen and (max-width:850px) {
   .blur-bg{
       margin-left: -280px;
@@ -138,6 +147,7 @@ h4{
   padding-left: 30px;
   transition: all ease-in-out .5s;
   margin-right: -2rem;
+  margin-left: 55px;
   
 }
 
@@ -176,7 +186,7 @@ h4{
     border-radius: 10px;
     text-align: center;
     padding-top: 9px;
-    width: 1095px;
+    width: 79.7em;
     height: 45px;
     transition: .3s;
     margin-top: 2em;
@@ -200,7 +210,7 @@ h4{
 .Main-galerie{
    margin-top: 50px;
    padding: 30px;
-   padding-top: 60px;
+   padding-top: 40px;
    margin: 100px;
    border-color: #3b82f6;
    box-shadow: 0px 0px 15px rgba(0,0,0,0.30);
@@ -210,6 +220,8 @@ h4{
   color: black;
   margin-left: -200px;
   margin-bottom: 20px;
+  font-family: cursive;
+  padding-left: 220px;
 } 
 @media screen and (max-width:850px) {
   .cities{
@@ -232,8 +244,11 @@ em{
 }
 #carous{
   width: 100%;
-  height: 600px;
+  height: 650px;
   border-radius: 20px;
+}
+.caroustext{
+  padding-left: 250px;
 }
 @media screen and (max-width:850px) {
   .galerie{
@@ -251,6 +266,8 @@ em{
    color: black;
    margin-bottom: 70px;
    margin-left: -30px;
+   font-family: cursive;
+   text-align: center;
 }
 @media screen and (max-width:850px){
   .offrs{
@@ -362,8 +379,8 @@ em{
 	left: 50px;
 	height: 60px;
 	width: 390px;
-	padding-top: 13px;
-	padding-left: -60px;
+	padding-top: 16px;
+	padding-left: 90px;
 	border-radius: 10px;
 	background-color: #1f84c2bd;
 	color: #f6f5f9;
@@ -418,7 +435,7 @@ body {
 .flight-card {
   width: 505px;
   height: 660px;
-  margin-left: 70px;
+  margin-left: 60px;
   margin-top: 30px;
   border-radius: 50px;
   overflow: hidden;
