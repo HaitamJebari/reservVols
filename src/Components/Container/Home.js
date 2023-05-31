@@ -1,8 +1,9 @@
-import React, { useContext} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
 import { FirstT } from './HomeCon';
 import { Link, useNavigate } from 'react-router-dom';
 import './Home.css';
-import {Carousel} from 'react-bootstrap'
+import { Carousel } from 'react-bootstrap';
 import swal from 'sweetalert';
 import img2 from '../../assets/img/img2.jpg'
 import img3 from '../../assets/img/img3.jpg'
@@ -13,100 +14,30 @@ import off1 from '../../assets/img/offers-1.jpg'
 import off2 from '../../assets/img/offers-2.jpg'
 import off3 from '../../assets/img/offers-3.jpg'
 import vol1 from '../../assets/img/vol1.png'
-import { createContext, useState } from 'react';
-export const ContextSearch=createContext()
+// Other imports...
+
 function Home() {
-  const { options0,  setOptions0, options1, setOptions1, selectedValue0, setSelectedValue0, handleChange0, selectedValue1, setSelectedValue1, handleChange1 } = useContext(FirstT);
-  const navigate = useNavigate();
-  // const [input1, setInput1] = useState('');
-  // const [input2, setInput2] = useState('');
-  // const [input1Error, setInput1Error] = useState(false);
-  // const [input2Error, setInput2Error] = useState(false);
-  // const [input1Active, setInput1Active] = useState(false);
-  // const [input2Active, setInput2Active] = useState(false);
-
-  // const handleInputChange = (event) => {
-  //   const { name, value } = event.target;
-  //   if (name === 'input1') {
-  //     setInput1(value);
-  //     setInput1Error(false); // Reset the error state when input value changes
-  //   } else if (name === 'input2') {
-  //     setInput2(value);
-  //     setInput2Error(false); // Reset the error state when input value changes
-  //   }
-  // };
-
-  // const handleInputFocus = (event) => {
-  //   const { name } = event.target;
-  //   if (name === 'input1') {
-  //     setInput1Active(true);
-  //   } else if (name === 'input2') {
-  //     setInput2Active(true);
-  //   }
-  // };
-
-  // const handleInputBlur = (event) => {
-  //   const { name } = event.target;
-  //   if (name === 'input1') {
-  //     setInput1Active(false);
-  //   } else if (name === 'input2') {
-  //     setInput2Active(false);
-  //   }
-  // };
-
-  // const handleLinkClick  = (event) => {
-  //   event.preventDefault(); // Prevent the default navigation behavior
-  //   if (input1 !== '' && input2 !== '') {
-  //     // Perform any other actions or validations here before navigation
-  //     navigate('/other-page'); // Navigate to the other page
-  //   } else {
-  //     // Inputs are not filled, show error by changing border color
-  //     if (input1 === '') {
-  //       setInput1Error(true);
-  //     }
-  //     if (input2 === '') {
-  //       setInput2Error(true);
-  //     }
-  //   }
-  // };
-  // const handleLinkClick = (event) =>{
-  //   event.preventDefault();
-  //   if (selectedValue0 !== '' && selectedValue1 !== ''){
-  //     navigate('/homeAff');
-  //   } else{
-  //           if (selectedValue0 === '') {
-  //             setSelectedValue0(true);
-  //           }
-  //           if (selectedValue1 === '') {
-  //             setSelectedValue1(true);
-  //           }
-  //   }
-  // }
-  const handle=()=>{
-    if (selectedValue0 ==='' || selectedValue1===''){
+  const { options0, setOptions0, options1, setOptions1, selectedValue0, setSelectedValue0, handleChange0, selectedValue1, setSelectedValue1, handleChange1 } = useContext(FirstT);
+  const handle = () => {
+    if (selectedValue0 === '' || selectedValue1 === '') {
       swal("Error!", "You have to fill all the fields!", "error");
-
-    }else{
+    } else {
       console.log('navigate');
       window.location = `/homeAff/${selectedValue0}/${selectedValue1}`;
     }
   }
-  
- 
-
   return (
     <>
-           <div className='Main-Photo'>
-            <div className='contenu-blur'>
-             <h5>Explore The World</h5>
-             <div className='line'></div>
-             <h2>Welcome To Hars</h2>
-             <p>Find cheap flight tickets on HARS</p>
-             <p className='p2'>The most simple site in which you will find the best offers</p>  
-             </div>   
-             <div className='blur-bg'></div>
-           </div>
-            <div className="notification">
+      <div className='Main-Photo'>
+        <div className='contenu-blur'>
+          <div className='line'></div>
+          <h2>Welcome</h2>
+          <p>Find cheap flight tickets on HARS</p>
+          <p className='p2'>The most simple site in which you will find the best offers</p>
+        </div>
+        <div className='blur-bg'></div>
+      </div>
+      <div className="notification">
               <p>Travel,You're Not a Tree 😎</p>
               <span className="notification__progress"></span>
             </div>
@@ -237,22 +168,38 @@ function Home() {
                                <div className="flip-card">
                                   <div className="flip-card-inner">
                                       <div className="flip-card-front">
-                                          <p className="title">France</p>
-                                          <p id='desc'>Raffinée, captivante, historique, envoûtante.</p>
+                                          
+                                          <ul className='ull'>
+                                                <li className='listeee'>
+                                                    <div className='dives'>F</div>
+                                                </li>
+                                                 <li className='listeee'>
+                                                    <div className='dives'>R</div>
+                                                </li>
+                                                <li className='listeee'>
+                                                    <div className='dives'>A</div>
+                                                </li>
+                                                <li className='listeee'>
+                                                    <div className='dives'>N</div>
+                                                </li>
+                                                <li className='listeee'>
+                                                    <div className='dives'>C</div>
+                                                </li>
+                                                <li className='listeee'>
+                                                    <div className='dives'>E</div>
+                                                </li>
+                                            </ul>
                                       </div>
                                       <div className="flip-card-back">
-                                          <p className="title">BACK</p>
-                                          <p>Leave Me</p>
+                                          
+                                
+                                          <button className="butnhove"><a href="/reservation" className='maintbutn'>Reserve</a></button>
+                                          <span></span>
                                       </div>
                                   </div>
                               </div>
-                          </div> 
-                                                                       
-
+                          </div>                                                                   
                </div>
-
-
-
 
                 <div className='col-lg-4 md-6 ms-12'>            
                          <div className='Cimg'>
@@ -270,12 +217,30 @@ function Home() {
                                <div className="flip-card">
                                   <div className="flip-card-inner">
                                       <div className="flip-card-front">
-                                          <p className="title">Suisse</p>
-                                          <p>Hover Me</p>
+                                          <ul className='ull'>
+                                                <li className='listeee'>
+                                                    <div className='dives'>S</div>
+                                                </li>
+                                                 <li className='listeee'>
+                                                    <div className='dives'>U</div>
+                                                </li>
+                                                <li className='listeee'>
+                                                    <div className='dives'>I</div>
+                                                </li>
+                                                <li className='listeee'>
+                                                    <div className='dives'>S</div>
+                                                </li>
+                                                <li className='listeee'>
+                                                    <div className='dives'>S</div>
+                                                </li>
+                                                <li className='listeee'>
+                                                    <div className='dives'>E</div>
+                                                </li>
+                                            </ul>
                                       </div>
                                       <div className="flip-card-back">
-                                          <p className="title">BACK</p>
-                                          <p>Leave Me</p>
+                                      <button className="butnhove"><a href="/reservation" className='maintbutn'>Reserve</a></button>
+                                          <span></span>
                                       </div>
                                   </div>
                               </div>
@@ -299,12 +264,33 @@ function Home() {
                                <div className="flip-card">
                                   <div className="flip-card-inner">
                                       <div className="flip-card-front">
-                                          <p className="title">Germany</p>
-                                          <p>Hover Me</p>
+                                          <ul className='ull'>
+                                                <li className='listeee'>
+                                                    <div className='dives'>G</div>
+                                                </li>
+                                                 <li className='listeee'>
+                                                    <div className='dives'>E</div>
+                                                </li>
+                                                <li className='listeee'>
+                                                    <div className='dives'>R</div>
+                                                </li>
+                                                <li className='listeee'>
+                                                    <div className='dives'>M</div>
+                                                </li>
+                                                <li className='listeee'>
+                                                    <div className='dives'>A</div>
+                                                </li>
+                                                <li className='listeee'>
+                                                    <div className='dives'>N</div>
+                                                </li>
+                                                <li className='listeee'>
+                                                    <div className='dives'>Y</div>
+                                                </li>
+                                            </ul>
                                       </div>
                                       <div className="flip-card-back">
-                                          <p className="title">BACK</p>
-                                          <p>Leave Me</p>
+                                      <button className="butnhove"><a href="/reservation" className='maintbutn'>Reserve</a></button>
+                                          <span></span>
                                       </div>
                                   </div>
                               </div>
