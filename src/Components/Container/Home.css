@@ -611,9 +611,12 @@ body {
   margin-left: 100px;
   border-radius: 20px;
   margin-left: 60px;
-  padding-left: 25px; 
+  padding-left: 25px;
   padding-top: 30px;
-
+  -webkit-transform: translateY(-220px);
+  -moz-transform: translateY(-220px);
+  -ms-transform: translateY(-220px);
+  -o-transform: translateY(-220px);
 }
 @media screen and (max-width:750px) {
   .flip-card{
@@ -647,7 +650,7 @@ body {
 
 .flip-card-front, .flip-card-back {
   box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -655,19 +658,109 @@ body {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border: 1px solid coral;
+  border: 1px solid #6DD5ED;
   border-radius: 1rem;
 }
 
 .flip-card-front {
-  background: linear-gradient(120deg, #bbad2b 60%, #bbad2b 88%,
-     rgb(255, 211, 195) 40%, #3d4329 48%);
+  background: linear-gradient(120deg, #26A0DA 60%, #26A0DA 88%,
+     rgb(255, 211, 195) 40%, #314755 48%);
   color: coral;
 }
 
 .flip-card-back {
-  background: linear-gradient(120deg, #bbad2b 30%, #bbad2b 88%,
-     bisque 40%, #3d4329 78%);
+  background: linear-gradient(120deg, #26A0DA 30%, #26A0DA 88%,
+     bisque 40%, #314755 78%);
   color: white;
   transform: rotateY(180deg);
+}
+
+.maintbutn{
+  
+  text-decoration: none;
+  color: black;
+  
+}
+
+
+
+
+
+/* ////// */
+.butnhove{
+  position: absolute;
+  border: none;
+  width: 9em;
+  height: 3em;
+  line-height: 2em;
+  text-align: center;
+  background: linear-gradient(90deg,#03a9f4,#314755,coral,#03a9f4);
+  background-size: 300%;
+  border-radius: 30px;
+  text-transform: uppercase;
+  cursor: pointer;
+  z-index: 1;
+  margin-left: 50px;
+}
+.butnhove:hover{
+  animation:animation 8s linear infinite;
+  border: none;
+}
+@keyframes animation{
+  0%{background-position: 0%;}
+  100%{background-position: 400%;}
+}
+.butnhove:before{
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg,#03a9f4,white,coral,#03a9f4);
+  background-size: 400%;
+  border-radius: 35px;
+  transition: 1s;
+}
+.butnhove:hover::before{
+  filter: blur(20px);
+}
+
+
+/* ///// */
+
+.ull{
+  display: flex;
+  margin-left: -10px;
+  
+}
+
+.listeee{
+  list-style: none;
+}
+
+.dives{
+  height: 20px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 46px;
+  font-family:cursive ;
+  cursor: pointer;
+  margin-left: 70;
+  border-radius: 20px;
+  color: white;
+  text-shadow: 0 0  15px #79cbca, 0 0 25px #79cbca;
+  animation: animate 1.5s linear infinite;
+}
+
+@keyframes animate{
+  0%{
+      filter: hue-rotate(0deg);
+}
+100%{
+  filter: hue-rotate(360deg);
+}
 }
