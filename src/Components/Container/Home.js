@@ -13,75 +13,12 @@ import off1 from '../../assets/img/offers-1.jpg'
 import off2 from '../../assets/img/offers-2.jpg'
 import off3 from '../../assets/img/offers-3.jpg'
 import vol1 from '../../assets/img/vol1.png'
-import { createContext, useState } from 'react';
-export const ContextSearch=createContext()
-function Home() {
+
+
+
+
+ function Home () {
   const { options0,  setOptions0, options1, setOptions1, selectedValue0, setSelectedValue0, handleChange0, selectedValue1, setSelectedValue1, handleChange1 } = useContext(FirstT);
-  const navigate = useNavigate();
-  // const [input1, setInput1] = useState('');
-  // const [input2, setInput2] = useState('');
-  // const [input1Error, setInput1Error] = useState(false);
-  // const [input2Error, setInput2Error] = useState(false);
-  // const [input1Active, setInput1Active] = useState(false);
-  // const [input2Active, setInput2Active] = useState(false);
-
-  // const handleInputChange = (event) => {
-  //   const { name, value } = event.target;
-  //   if (name === 'input1') {
-  //     setInput1(value);
-  //     setInput1Error(false); // Reset the error state when input value changes
-  //   } else if (name === 'input2') {
-  //     setInput2(value);
-  //     setInput2Error(false); // Reset the error state when input value changes
-  //   }
-  // };
-
-  // const handleInputFocus = (event) => {
-  //   const { name } = event.target;
-  //   if (name === 'input1') {
-  //     setInput1Active(true);
-  //   } else if (name === 'input2') {
-  //     setInput2Active(true);
-  //   }
-  // };
-
-  // const handleInputBlur = (event) => {
-  //   const { name } = event.target;
-  //   if (name === 'input1') {
-  //     setInput1Active(false);
-  //   } else if (name === 'input2') {
-  //     setInput2Active(false);
-  //   }
-  // };
-
-  // const handleLinkClick  = (event) => {
-  //   event.preventDefault(); // Prevent the default navigation behavior
-  //   if (input1 !== '' && input2 !== '') {
-  //     // Perform any other actions or validations here before navigation
-  //     navigate('/other-page'); // Navigate to the other page
-  //   } else {
-  //     // Inputs are not filled, show error by changing border color
-  //     if (input1 === '') {
-  //       setInput1Error(true);
-  //     }
-  //     if (input2 === '') {
-  //       setInput2Error(true);
-  //     }
-  //   }
-  // };
-  // const handleLinkClick = (event) =>{
-  //   event.preventDefault();
-  //   if (selectedValue0 !== '' && selectedValue1 !== ''){
-  //     navigate('/homeAff');
-  //   } else{
-  //           if (selectedValue0 === '') {
-  //             setSelectedValue0(true);
-  //           }
-  //           if (selectedValue1 === '') {
-  //             setSelectedValue1(true);
-  //           }
-  //   }
-  // }
   const handle=()=>{
     if (selectedValue0 ==='' || selectedValue1===''){
       swal("Error!", "You have to fill all the fields!", "error");
@@ -97,7 +34,6 @@ function Home() {
     <>
            <div className='Main-Photo'>
             <div className='contenu-blur'>
-             <h5>Explore The World</h5>
              <div className='line'></div>
              <h2>Welcome To Hars</h2>
              <p>Find cheap flight tickets on HARS</p>
@@ -315,6 +251,7 @@ function Home() {
       
     </>
   );
-}
 
+
+}
 export default Home;

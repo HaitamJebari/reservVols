@@ -11,9 +11,13 @@
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0,0,0,.6);
   border-radius: 10px;
+  -webkit-transform: translate(-50%, -55%);
+  -moz-transform: translate(-50%, -55%);
+  -o-transform: translate(-50%, -55%);
+  
 }
+.login-box p:first-child{
 
-.login-box p:first-child {
   margin: 0 0 30px;
   padding: 0;
   color: #fff;
@@ -184,4 +188,10 @@ button{
      border: none;
      background-color: rgb(0,0,0,0);     
      color: white;  
+}
+
+.error{
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
 }

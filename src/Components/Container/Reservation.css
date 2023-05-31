@@ -182,6 +182,11 @@
     position: relative;
     overflow: hidden;
   }
+
+  .button-submit{
+    background-color: #22b3c1;
+    color: #fff;
+  }
   
   .form .button-submit:hover {
     opacity: 0.8;
@@ -190,6 +195,10 @@
   .button-submit input{
     background-color: #22b3c1;
     color: #fff;
+  }
+  
+  .aler{
+    display: none;
   }
   #icon{
     margin-bottom: 5px;
