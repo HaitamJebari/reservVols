@@ -86,7 +86,7 @@ function Reservation() {
     <div className='col-lg-6'>
           <label htmlFor="adultes">Nombre d'adultes</label>
           <select name="adultes" id="adultes">
-            <option selected="selected">0 Adulte</option>
+            <option selected="selected">0 </option>
             <option>1 </option>
             <option>2 </option>
             <option>3 </option>
@@ -97,7 +97,8 @@ function Reservation() {
     <div className='col-lg-6'>
           <label htmlFor="enfants">Nombre d'enfants</label>
           <select name="enfants" id="enfants">
-            <option selected="selected">0 Enfant</option>
+            <option selected="selected">Selectionner Un Choix</option>
+            <option>0</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -114,7 +115,8 @@ function Reservation() {
     </div>
         <div className='col-lg-12 ms-12'>
               <div className="button-submit">
-                 <input type="submit" value="Reserver" name="recherche" id="recherche" />
+                <button type='button'>Reserver</button>
+                 {/* <input type="submit" value="Reserver" name="recherche" id="recherche" /> */}
               </div>
         </div>
       </div>
