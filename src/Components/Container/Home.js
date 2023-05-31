@@ -1,5 +1,9 @@
+import React, { useContext} from 'react';
+import { FirstT } from './HomeCon';
+import { Link, useNavigate } from 'react-router-dom';
 import './Home.css';
 import {Carousel} from 'react-bootstrap'
+import swal from 'sweetalert';
 import img2 from '../../assets/img/img2.jpg'
 import img3 from '../../assets/img/img3.jpg'
 import img4 from '../../assets/img/img4.jpg'
@@ -10,13 +14,26 @@ import off2 from '../../assets/img/offers-2.jpg'
 import off3 from '../../assets/img/offers-3.jpg'
 import vol1 from '../../assets/img/vol1.png'
 
-function Home() {
+
+
+
+ function Home () {
+  const { options0,  setOptions0, options1, setOptions1, selectedValue0, setSelectedValue0, handleChange0, selectedValue1, setSelectedValue1, handleChange1 } = useContext(FirstT);
+  const handle=()=>{
+    if (selectedValue0 ==='' || selectedValue1===''){
+      swal("Error!", "You have to fill all the fields!", "error");
+    }else{
+      console.log('navigate');
+      window.location = `/homeAff/${selectedValue0}/${selectedValue1}`;
+    }
+  }
   
+ 
+
   return (
     <>
            <div className='Main-Photo'>
             <div className='contenu-blur'>
-             <h5>Explore The World</h5>
              <div className='line'></div>
              <h2>Welcome To Hars</h2>
              <p>Find cheap flight tickets on HARS</p>
@@ -24,57 +41,80 @@ function Home() {
              </div>   
              <div className='blur-bg'></div>
            </div>
+            <div className="notification">
+              <p>Travel,You're Not a Tree 😎</p>
+              <span className="notification__progress"></span>
+            </div>
            <div className='container'>
            <div className='search'>
              <div className='row'>            
-                <div className='col-lg-3 sm-12'>
+                <div className='col-lg-6 sm-12'>
+
+
+
                   <h4>Origin :</h4>
-                  <select className='inputR' name="">
-                      <option selected="selected">Select Your origin</option>
-                      <option>Tanger</option>
-                  </select>                
+                  <select
+                  className='inputS'
+                  value={selectedValue0}
+                  onChange={handleChange0}
+                  // onChange={handleChange0}
+                  // onBlur={handleInputBlur}
+                  // style={{
+                  //   borderColor: input1Error
+                  //     ? 'red'
+                  //     : input1Active
+                  //     ? 'green'
+                  //     : '',
+                  // }}
+                  // style={{
+                  //   borderColor: input1Error ? 'red' : input1Active ? 'green' : '',
+                  // }}
+                >
+                    <option>Select Your Option</option>
+                    {options0.map((option) => (
+                      <option  key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                    
+                    
+                  </select>
+
+
+
+
+
+
                   </div>
-                <div className='col-lg-3 sm-12'>
+                <div className='col-lg-6 sm-12'>
                   <h4>Destinataire :</h4>
-                  <select className='inputR' name="">
-                      <option selected="selected">Select Your Destinataire</option>
-                      <option>Paris</option>
-                      <option>Berne</option>
-                      <option>Dortmund</option>
+                  <select
+                    className='inputS'
+                    value={selectedValue1}
+                    onChange={handleChange1}
+                    // style={{
+                    //   borderColor: input2Error ? 'red' : input2Active ? 'green' : '',
+                    // }}
+                  >                    
+                      <option>Select Your Option</option>
+                    {options1.map((option) => (
+                      <option  key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
                   </select>
                 </div>                
-                <div className='col-lg-3 sm-12'>
-                  <h4>Départ le :</h4>
-                  <input type='date' className='inputR' placeholder="Type your text"/>
-                </div>
-                <div className='col-lg-3 sm-12'>
-                  <h4>Retour le :</h4>
-                  <input type='date' className='inputR' placeholder="Type your text"/>
-                </div>
-                <div className='col-lg-6'>
-                  <h4>Nombre d'enfants</h4>
-                  <select className='inputS' >
-                      <option selected="selected">0 enfant</option>
-                      <option>1 enfant</option>
-                      <option>2 enfants</option>
-                      <option>3 enfants</option>
-                      <option>4 enfants</option>
-                      <option>5 enfants</option>
-                  </select>
-                </div>
-                <div className='col-lg-6'>
-                  <h4>Nombre d'adultes</h4>
-                  <select className='inputS' >
-                      <option selected="selected">0 Adulte</option>
-                      <option>1 Adulte</option>
-                      <option>2 Adultes</option>
-                      <option>3 Adultes</option>
-                      <option>4 Adultes</option>
-                      <option>5 Adultes</option>
-                  </select>
-                </div>
-                <div className='col-lg-12 sm-12'>
-                   <input type='submit' className='buttonR' value='search'/>
+  
+               
+                <div className='col-lg-6 sm-12'>
+                   {/* <input type='submit'  value='search'/> */}
+                   <Link 
+                  className='buttonR'  
+                  onClick={handle} 
+                  type='submit' 
+                  // to='/homeAff'
+                  >Search
+                  </Link>
                 </div>
              </div>
             </div>
@@ -120,26 +160,39 @@ function Home() {
               </div>
           </div>   
           <div className='row'>
-          <div className='col-lg-4 md-6 ms-12'>   
+                 <div className='col-lg-4 md-6 ms-12'>   
                          <div className='Cimg'>
                              <img src={off1} />
-                               <div className='info'>
+                               {/* <div className='info'>
                                <h4 className='infotext'>France</h4>
-                               <div className='text'>
-                                  Tanger - Paris
-                               </div>
-                               <img src={vol1} id='imgvol'/>
                                     <div className="button" >
                                         <a href="/reservation"  id='res'>Faire une Reservation</a>
                                     </div> 
-                               </div>    
-                          </div>                                              
+                               </div>     */}
+                               <div className="flip-card">
+                                  <div className="flip-card-inner">
+                                      <div className="flip-card-front">
+                                          <p className="title">France</p>
+                                          <p id='desc'>Raffinée, captivante, historique, envoûtante.</p>
+                                      </div>
+                                      <div className="flip-card-back">
+                                          <p className="title">BACK</p>
+                                          <p>Leave Me</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div> 
+                                                                       
+
                </div>
+
+
+
 
                 <div className='col-lg-4 md-6 ms-12'>            
                          <div className='Cimg'>
                                <img src={off2} />
-                               <div className='info'>
+                               {/* <div className='info'>
                                <h4 className='infotext'>Suisse</h4>
                                <div className='text'>
                                   Tanger - Berne
@@ -148,7 +201,19 @@ function Home() {
                                     <div className="button" >
                                         <a href="/reservation" id='res'>Faire une Reservation</a>
                                     </div> 
-                               </div>    
+                               </div>     */}
+                               <div className="flip-card">
+                                  <div className="flip-card-inner">
+                                      <div className="flip-card-front">
+                                          <p className="title">Suisse</p>
+                                          <p>Hover Me</p>
+                                      </div>
+                                      <div className="flip-card-back">
+                                          <p className="title">BACK</p>
+                                          <p>Leave Me</p>
+                                      </div>
+                                  </div>
+                              </div>
                          </div>    
                                               
                 </div>
@@ -156,7 +221,7 @@ function Home() {
                 <div className='col-lg-4 md-6 ms-12'>            
                          <div className='Cimg'>
                              <img src={off3} />
-                               <div className='info'>
+                               {/* <div className='info'>
                                <h4 className='infotext'>Germany</h4>
                                <div className='text'>
                                   Tanger - Dortmund
@@ -165,7 +230,19 @@ function Home() {
                                     <div className="button">
                                         <a href="/reservation" id='res'>Faire une Reservation</a>
                                     </div> 
-                               </div>    
+                               </div>     */}
+                               <div className="flip-card">
+                                  <div className="flip-card-inner">
+                                      <div className="flip-card-front">
+                                          <p className="title">Germany</p>
+                                          <p>Hover Me</p>
+                                      </div>
+                                      <div className="flip-card-back">
+                                          <p className="title">BACK</p>
+                                          <p>Leave Me</p>
+                                      </div>
+                                  </div>
+                              </div>
                          </div>    
                                               
                 </div>
@@ -174,6 +251,7 @@ function Home() {
       
     </>
   );
-}
 
+
+}
 export default Home;
