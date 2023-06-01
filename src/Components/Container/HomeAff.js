@@ -111,7 +111,7 @@ function HomeAff() {
       
     </div>
     <div className="reservFlight-class">
-            <input type="submit" onClick={Handleclick} className='reservFlight' value='Reserver Maintenant'/>          
+            <input type="submit" onClick={Handleclick} className='reservFlight' value='Book Now'/>          
     </div>
   </div>
   
@@ -163,7 +163,7 @@ function HomeAff() {
       
     </div>
     <div className="reservFlight-class">
-            <input type="submit" onClick={Handleclick} className='reservFlight' value='Reserver Maintenant'/>
+            <input type="submit" onClick={Handleclick} className='reservFlight' value='Book Now'/>
     </div>
   </div>
   
@@ -216,7 +216,7 @@ function HomeAff() {
       
     </div>
     <div className="reservFlight-class">
-            <input type="submit" onClick={Handleclick} className='reservFlight' value='Reserver Maintenant'/>
+            <input type="submit" onClick={Handleclick} className='reservFlight' value='Book Now'/>
     </div>
   </div>
   

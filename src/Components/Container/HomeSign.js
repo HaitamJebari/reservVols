@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { FirstT } from './HomeCon';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Home.css';
 import { Carousel } from 'react-bootstrap';
 import swal from 'sweetalert';
@@ -40,7 +40,7 @@ function Home() {
         <div className='blur-bg'></div>
       </div>
       <div className="notification">
-              <p>Travel,You're Not a Tree 😎</p>
+              <p>Hello Our Client Enjoy Our new Offers</p>
               <span className="notification__progress"></span>
             </div>
            <div className='container'>
@@ -55,7 +55,7 @@ function Home() {
                   className='inputS'
                   value={selectedValue0}
                   onChange={handleChange0}
-                  
+
                 >
                     <option>Select Your Option</option>
                     {options0.map((option) => (
@@ -79,7 +79,7 @@ function Home() {
                     className='inputS'
                     value={selectedValue1}
                     onChange={handleChange1}
-                    
+                   
                   >                    
                       <option>Select Your Option</option>
                     {options1.map((option) => (
@@ -186,7 +186,7 @@ function Home() {
                 <div className='col-lg-4 md-6 ms-12'>            
                          <div className='Cimg'>
                                <img src={off2} />
-                              
+                               
                                <div className="flip-card">
                                   <div className="flip-card-inner">
                                       <div className="flip-card-front">
@@ -224,7 +224,7 @@ function Home() {
                 <div className='col-lg-4 md-6 ms-12'>            
                          <div className='Cimg'>
                              <img src={off3} />
-                               
+                              
                                <div className="flip-card">
                                   <div className="flip-card-inner">
                                       <div className="flip-card-front">

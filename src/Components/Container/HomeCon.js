@@ -11,11 +11,7 @@ const HomeCon = ({children}) => {
     { value: 'Dortmund', label: 'Dortmund',  optionD:'DTM' ,optionC:'Allmand'}
   ]);
   
-  // const [options3, setOptions3] = useState([
-  //   { value: 'CDG', label: 'CDG' },
-  //   { value: 'BRN', label: 'BRN' },
-  //   { value: 'DTM', label: 'DTM' }
-  // ]);
+
 
  
   

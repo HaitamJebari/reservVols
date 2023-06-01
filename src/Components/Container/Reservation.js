@@ -11,6 +11,7 @@ function Reservation() {
   const [Dretour, setDretour] = useState('');
   const [Adultes, setAdultes] = useState('');
   const [Enfants, setEnfants] = useState('');
+  const [Email, setEmail] = useState('');
   const [Categorie, setCategorie] = useState('');
 
   const Nave = useNavigate();
@@ -19,7 +20,7 @@ function Reservation() {
   console.log(selectedValue0, selectedValue1);
 
   const successAlert = () => {
-    swal( "Success","Bien Reserver", "success");
+    swal( "Success","Check Your Gmail to Continue Reservation", "success");
   };
 
   const errorAlert = () => {
@@ -35,8 +36,9 @@ function Reservation() {
     setDretour('');
     setAdultes('');
     setEnfants('');
+    setEmail('');
     setCategorie('');
-    console.warn(Vdepart, Varrivee, Ddepart, Dretour, Adultes, Enfants, Categorie);
+    console.warn(Vdepart, Varrivee, Ddepart, Dretour, Adultes, Enfants,Email, Categorie);
 
     const formData = new FormData();
     formData.append('Vdepart', Vdepart);
@@ -45,6 +47,7 @@ function Reservation() {
     formData.append('Dretour', Dretour);
     formData.append('Adultes', Adultes);
     formData.append('Enfants', Enfants);
+    formData.append('Email', Email);
     formData.append('Categorie', Categorie);
 
     try {
@@ -104,14 +107,14 @@ function Reservation() {
 
       <div className='form'>
   <div className='faire'>
-    <h4>Faire Ton <em>Reservation</em> Par ce <em>formulaire</em></h4>
+    <h4>Make Your <em>Reservation</em> By This  <em>form</em></h4>
   </div>
 
   <form>
     <div className='row'>
       <div className='col-lg-6'>
         <fieldset>
-          <label htmlFor="provenance">Ville de départ</label>
+          <label htmlFor="provenance">Origin </label>
           <select className='inputR' value={Vdepart} onChange={(e) => setVdepart(e.target.value)}>
             <option selected="selected">{selectedValue0}</option>
             <option>Tanger</option>
@@ -121,7 +124,7 @@ function Reservation() {
 
       <div className='col-lg-6'>
         <fieldset>
-          <label htmlFor="arrivee">Ville d'arrivée</label>
+          <label htmlFor="arrivee">Destinataire</label>
           <select className='inputR' value={Varrivee} onChange={(e) => setVarrivee(e.target.value)}>
             <option selected="selected">{selectedValue1}</option>
             <option>Paris</option>
@@ -163,6 +166,10 @@ function Reservation() {
         </select>
       </div>
       <div className='col-lg-12'>
+        <label htmlFor="type">Email :</label>
+        <input type='email' value={Email} onChange={(e) => setEmail(e.target.value)}/>
+      </div>
+      <div className='col-lg-12'>
         <label htmlFor="type">Categorie</label>
         <select id="type" value={Categorie} onChange={(e) => setCategorie(e.target.value)}>
           <option selected="selected">Selectionner Votre Choix</option>
@@ -172,11 +179,9 @@ function Reservation() {
       </div>
       <div className='col-lg-12 ms-12'>
         <div className="button-submit">
-          <button type='button' id="recherche" onClick={Reserver}><span>Reserver</span></button>
+          <button type='button' id="recherche" onClick={Reserver}><span>Reserve</span></button>
         </div>
-     
-
-        </div>
+      </div>
       </div>
     </form>
   </div>

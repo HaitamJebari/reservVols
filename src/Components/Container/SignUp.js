@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './signlog.css';
+export const SecondT=createContext()
 
-export default function Signup() {
+
+export default function Signup({children}) {
+  
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -29,15 +32,16 @@ export default function Signup() {
         Accept: 'application/json',
       },
     });
-
+    
     result = await result.json();
     console.log('result', result);
 
-    history('/');
-
+    history('/HomeSign')
   }
 
+
  return (
+  <>
     <div className="login-box">
       <p>Sign Up</p>
       <form>
@@ -71,5 +75,7 @@ export default function Signup() {
   </form>
   <p>You already have account : <a href="/login" className="a2">Login</a></p>
 </div>
+    
+</>
   )
 }

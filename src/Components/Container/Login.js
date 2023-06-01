@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './signlog.css';
 import axios from 'axios';
 
-export default function Login() {
+
+export default function Login({children}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message , setMessage] = useState('');
+
 
   const history = useNavigate();
 
@@ -25,9 +27,9 @@ export default function Login() {
       });
       const { action } = response.data;
       if (action === 'true') {
-        history('/');
+        history('/HomeSign');
       } else {
-        setMessage('Email or password is incorrect');
+        setMessage(`Email or password is incorrect Or You don't have account `);
       }
     } catch (error) {
       console.error(error);
@@ -35,8 +37,9 @@ export default function Login() {
   };
 
   return (
+    <>
     <div className="login-box">
-      <p>Login</p>
+      <p>Log in</p>
       <form>
         <div className="user-box">
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -56,5 +59,7 @@ export default function Login() {
 
       <div className='error'>{message}</div>
     </div>
+    
+    </>
   );
 }
